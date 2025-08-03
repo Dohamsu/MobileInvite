@@ -98,7 +98,7 @@ export default function ReviewSection() {
               </div>
               
               <p className="text-gray-700 mb-4 leading-relaxed">
-                "{review.comment}"
+                &ldquo;{review.comment}&rdquo;
               </p>
               
               <div className="border-t border-gray-200 pt-4">
@@ -132,7 +132,7 @@ export default function ReviewSection() {
               </div>
               
               <p className="text-gray-700 mb-4 leading-relaxed">
-                "{review.comment}"
+                &ldquo;{review.comment}&rdquo;
               </p>
               
               <div className="border-t border-gray-200 pt-4">

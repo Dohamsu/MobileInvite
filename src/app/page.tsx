@@ -5,14 +5,12 @@ import {
   Container,
   Typography,
   Button,
-  Grid,
   Card,
   CardContent,
-  Paper,
   Rating,
   Stack,
 } from '@mui/material'
-import { Heart, Plus, Star, Clock, Palette, Share2, Gift, Camera } from 'lucide-react'
+import { Heart, Plus, Clock, Palette, Share2, Gift, Camera } from 'lucide-react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 
