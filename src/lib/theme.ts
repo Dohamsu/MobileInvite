@@ -26,9 +26,7 @@ export const theme = createTheme({
   },
   typography: {
     fontFamily: [
-      'Noto Sans KR',
-      'Apple SD Gothic Neo',
-      'Malgun Gothic',
+      'SUIT Variable',
       'sans-serif',
     ].join(','),
     h1: {

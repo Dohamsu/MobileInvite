@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css');
 
 html {
   height: 100%;
@@ -7,7 +7,7 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
+  font-family: 'SUIT Variable', sans-serif;
   background: linear-gradient(135deg, #FFE4E1 0%, #FFF0F5 50%, #FFEEF7 100%);
   min-height: 100vh;
 }
