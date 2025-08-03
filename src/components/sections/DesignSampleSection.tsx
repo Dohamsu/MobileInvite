@@ -2,8 +2,8 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight, Eye } from "lucide-react"
+import { Button, IconButton } from "@mui/material"
 
 const templates = [
   {
@@ -85,14 +85,23 @@ export default function DesignSampleSection() {
         {/* Desktop Carousel */}
         <div className="hidden md:block relative">
           <div className="flex items-center justify-center gap-6 mb-8">
-            <Button
-              variant="outline"
-              size="icon"
+            <IconButton
               onClick={prevSlide}
-              className="rounded-full w-12 h-12"
+              sx={{
+                borderRadius: '50%',
+                width: 48,
+                height: 48,
+                border: '1px solid',
+                borderColor: 'grey.300',
+                color: 'grey.600',
+                '&:hover': {
+                  borderColor: 'pink.500',
+                  color: 'pink.500',
+                },
+              }}
             >
-              <ChevronLeft className="w-5 h-5" />
-            </Button>
+              <ChevronLeft style={{ width: 20, height: 20 }} />
+            </IconButton>
 
             <div className="flex gap-6 overflow-hidden">
               {getVisibleTemplates().map((template, index) => (
@@ -122,10 +131,16 @@ export default function DesignSampleSection() {
                   
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
                     <Button 
-                      className="opacity-0 group-hover:opacity-100 transition-opacity"
-                      size="sm"
+                      sx={{
+                        opacity: 0,
+                        '&:hover': {
+                          opacity: 1,
+                        },
+                        transition: 'opacity 0.2s',
+                      }}
+                      size="small"
                     >
-                      <Eye className="w-4 h-4 mr-2" />
+                      <Eye style={{ width: 16, height: 16, marginRight: 8 }} />
                       미리보기
                     </Button>
                   </div>
@@ -133,14 +148,23 @@ export default function DesignSampleSection() {
               ))}
             </div>
 
-            <Button
-              variant="outline"
-              size="icon"
+            <IconButton
               onClick={nextSlide}
-              className="rounded-full w-12 h-12"
+              sx={{
+                borderRadius: '50%',
+                width: 48,
+                height: 48,
+                border: '1px solid',
+                borderColor: 'grey.300',
+                color: 'grey.600',
+                '&:hover': {
+                  borderColor: 'pink.500',
+                  color: 'pink.500',
+                },
+              }}
             >
-              <ChevronRight className="w-5 h-5" />
-            </Button>
+              <ChevronRight style={{ width: 20, height: 20 }} />
+            </IconButton>
           </div>
 
           <div className="text-center">
@@ -150,8 +174,8 @@ export default function DesignSampleSection() {
             <p className="text-gray-600 mb-4">
               {getVisibleTemplates()[1]?.description}
             </p>
-            <Button variant="outline">
-              <Eye className="w-4 h-4 mr-2" />
+            <Button variant="outlined">
+              <Eye style={{ width: 16, height: 16, marginRight: 8 }} />
               샘플 보기
             </Button>
           </div>
@@ -177,8 +201,8 @@ export default function DesignSampleSection() {
                 
                 <div className="space-y-2">
                   <h4 className="font-semibold text-gray-900 text-sm">{template.name}</h4>
-                  <Button size="sm" className="w-full">
-                    <Eye className="w-4 h-4 mr-2" />
+                  <Button size="small" sx={{ width: '100%' }}>
+                    <Eye style={{ width: 16, height: 16, marginRight: 8 }} />
                     미리보기
                   </Button>
                 </div>
@@ -197,7 +221,7 @@ export default function DesignSampleSection() {
           <p className="text-gray-600 mb-6">
             더 많은 템플릿이 준비되어 있어요!
           </p>
-          <Button size="lg">
+          <Button size="large">
             모든 템플릿 보기
           </Button>
         </motion.div>

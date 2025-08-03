@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
-import { Button } from '@/components/ui/button'
 import { Heart, Menu, X, User, LogOut } from 'lucide-react'
 import { useUser, SignInButton, SignOutButton } from '@clerk/nextjs'
 import {
@@ -17,6 +16,7 @@ import {
   ListItemText,
   Divider,
   Avatar,
+  Button,
 } from '@mui/material'
 
 export function Navigation() {
@@ -67,7 +67,7 @@ export function Navigation() {
           {menuItems.map((item) => (
             <Link key={item.href} href={item.href} style={{ textDecoration: 'none' }}>
               <Button 
-                variant="ghost"
+                // variant="outline"
                 className="mx-1 text-gray-700 hover:text-pink-500 hover:bg-transparent"
               >
                 {item.label}
@@ -90,16 +90,31 @@ export function Navigation() {
               </Box>
               <SignOutButton>
                 <Button 
-                  variant="outline" 
-                  size="sm"
-                  className="border-gray-300 text-gray-600 hover:border-pink-500 hover:text-pink-500"
+                  variant="outlined" 
+                  size="small"
+                  sx={{
+                    borderColor: 'grey.300',
+                    color: 'grey.600',
+                    '&:hover': {
+                      borderColor: 'pink.500',
+                      color: 'pink.500',
+                    },
+                  }}
                 >
-                  <LogOut className="w-4 h-4 mr-2" />
+                  <LogOut style={{ width: 16, height: 16, marginRight: 8 }} />
                   로그아웃
                 </Button>
               </SignOutButton>
               <Link href="/create">
-                <Button className="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-600 hover:to-rose-500 text-white">
+                <Button 
+                  sx={{
+                    background: 'linear-gradient(45deg, #ec4899 30%, #f43f5e 90%)',
+                    color: 'white',
+                    '&:hover': {
+                      background: 'linear-gradient(45deg, #db2777 30%, #e11d48 90%)',
+                    },
+                  }}
+                >
                   청첩장 만들기
                 </Button>
               </Link>
@@ -108,14 +123,29 @@ export function Navigation() {
             <>
               <SignInButton mode="modal">
                 <Button 
-                  variant="outline"
-                  className="border-gray-300 text-gray-600 hover:border-pink-500 hover:text-pink-500"
+                  variant="outlined"
+                  sx={{
+                    borderColor: 'grey.300',
+                    color: 'grey.600',
+                    '&:hover': {
+                      borderColor: 'pink.500',
+                      color: 'pink.500',
+                    },
+                  }}
                 >
                   로그인
                 </Button>
               </SignInButton>
               <Link href="/create">
-                <Button className="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-600 hover:to-rose-500 text-white">
+                <Button 
+                  sx={{
+                    background: 'linear-gradient(45deg, #ec4899 30%, #f43f5e 90%)',
+                    color: 'white',
+                    '&:hover': {
+                      background: 'linear-gradient(45deg, #db2777 30%, #e11d48 90%)',
+                    },
+                  }}
+                >
                   청첩장 만들기
                 </Button>
               </Link>
@@ -183,16 +213,34 @@ export function Navigation() {
               </Box>
               <SignOutButton>
                 <Button 
-                  variant="outline" 
-                  className="w-full mb-2"
+                  variant="outlined" 
+                  sx={{
+                    width: '100%',
+                    mb: 2,
+                    borderColor: 'grey.300',
+                    color: 'grey.600',
+                    '&:hover': {
+                      borderColor: 'pink.500',
+                      color: 'pink.500',
+                    },
+                  }}
                   onClick={toggleMenu}
                 >
-                  <LogOut className="w-4 h-4 mr-2" />
+                  <LogOut style={{ width: 16, height: 16, marginRight: 8 }} />
                   로그아웃
                 </Button>
               </SignOutButton>
               <Link href="/create" onClick={toggleMenu}>
-                <Button className="w-full bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-600 hover:to-rose-500 text-white">
+                <Button 
+                  sx={{
+                    width: '100%',
+                    background: 'linear-gradient(45deg, #ec4899 30%, #f43f5e 90%)',
+                    color: 'white',
+                    '&:hover': {
+                      background: 'linear-gradient(45deg, #db2777 30%, #e11d48 90%)',
+                    },
+                  }}
+                >
                   청첩장 만들기
                 </Button>
               </Link>
@@ -201,15 +249,33 @@ export function Navigation() {
             <Box sx={{ spaceY: 2 }}>
               <SignInButton mode="modal">
                 <Button 
-                  variant="outline" 
-                  className="w-full mb-2"
+                  variant="outlined" 
+                  sx={{
+                    width: '100%',
+                    mb: 2,
+                    borderColor: 'grey.300',
+                    color: 'grey.600',
+                    '&:hover': {
+                      borderColor: 'pink.500',
+                      color: 'pink.500',
+                    },
+                  }}
                   onClick={toggleMenu}
                 >
                   로그인
                 </Button>
               </SignInButton>
               <Link href="/create" onClick={toggleMenu}>
-                <Button className="w-full bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-600 hover:to-rose-500 text-white">
+                <Button 
+                  sx={{
+                    width: '100%',
+                    background: 'linear-gradient(45deg, #ec4899 30%, #f43f5e 90%)',
+                    color: 'white',
+                    '&:hover': {
+                      background: 'linear-gradient(45deg, #db2777 30%, #e11d48 90%)',
+                    },
+                  }}
+                >
                   청첩장 만들기
                 </Button>
               </Link>

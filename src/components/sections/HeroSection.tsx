@@ -1,8 +1,8 @@
 'use client'
 
-import { Button } from "@/components/ui/button"
 import { Heart, ArrowRight } from "lucide-react"
 import { motion } from "framer-motion"
+import { Button } from "@mui/material"
 
 export default function HeroSection() {
   return (
@@ -50,17 +50,41 @@ export default function HeroSection() {
           transition={{ duration: 0.8, delay: 0.6 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          <Button size="lg" className="w-full sm:w-auto text-lg px-8 py-6">
-            <Heart className="w-5 h-5 mr-2" />
+          <Button 
+            size="large" 
+            sx={{
+              width: { xs: '100%', sm: 'auto' },
+              fontSize: '1.125rem',
+              px: 4,
+              py: 2,
+              background: 'linear-gradient(45deg, #ec4899 30%, #f43f5e 90%)',
+              color: 'white',
+              '&:hover': {
+                background: 'linear-gradient(45deg, #db2777 30%, #e11d48 90%)',
+              },
+            }}
+          >
+            <Heart style={{ width: 20, height: 20, marginRight: 8 }} />
             청첩장 만들기
           </Button>
           <Button 
-            variant="outline" 
-            size="lg" 
-            className="w-full sm:w-auto text-lg px-8 py-6"
+            variant="outlined" 
+            size="large" 
+            sx={{
+              width: { xs: '100%', sm: 'auto' },
+              fontSize: '1.125rem',
+              px: 4,
+              py: 2,
+              borderColor: 'grey.300',
+              color: 'grey.700',
+              '&:hover': {
+                borderColor: 'pink.500',
+                color: 'pink.500',
+              },
+            }}
           >
             샘플 보기
-            <ArrowRight className="w-5 h-5 ml-2" />
+            <ArrowRight style={{ width: 20, height: 20, marginLeft: 8 }} />
           </Button>
         </motion.div>
       </div>
