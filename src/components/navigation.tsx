@@ -3,10 +3,12 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { Heart, Menu, X } from 'lucide-react'
+import { Heart, Menu, X, User, LogOut } from 'lucide-react'
+import { useUser, SignInButton, SignOutButton } from '@clerk/nextjs'
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const { isSignedIn, user } = useUser()
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
@@ -52,14 +54,36 @@ export function Navigation() {
 
           {/* 로그인/회원가입 버튼 (데스크톱) */}
           <div className="hidden md:flex items-center space-x-4">
-            <Link href="/login">
-              <Button variant="ghost">로그인</Button>
-            </Link>
-            <Link href="/create">
-              <Button className="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-600 hover:to-rose-500">
-                청첩장 만들기
-              </Button>
-            </Link>
+            {isSignedIn ? (
+              <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-2">
+                  <User className="h-4 w-4 text-gray-600" />
+                  <span className="text-sm text-gray-700">{user?.firstName || user?.emailAddresses[0]?.emailAddress}</span>
+                </div>
+                <SignOutButton>
+                  <Button variant="ghost" size="sm">
+                    <LogOut className="h-4 w-4 mr-2" />
+                    로그아웃
+                  </Button>
+                </SignOutButton>
+                <Link href="/create">
+                  <Button className="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-600 hover:to-rose-500">
+                    청첩장 만들기
+                  </Button>
+                </Link>
+              </div>
+            ) : (
+              <div className="flex items-center space-x-4">
+                <SignInButton mode="modal">
+                  <Button variant="ghost">로그인</Button>
+                </SignInButton>
+                <Link href="/create">
+                  <Button className="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-600 hover:to-rose-500">
+                    청첩장 만들기
+                  </Button>
+                </Link>
+              </div>
+            )}
           </div>
 
           {/* 모바일 메뉴 버튼 */}
@@ -104,14 +128,38 @@ export function Navigation() {
                 고객지원
               </Link>
               <div className="flex flex-col space-y-2 pt-4 border-t border-gray-100">
-                <Link href="/login" onClick={() => setIsMenuOpen(false)}>
-                  <Button variant="outline" className="w-full">로그인</Button>
-                </Link>
-                <Link href="/create" onClick={() => setIsMenuOpen(false)}>
-                  <Button className="w-full bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-600 hover:to-rose-500">
-                    청첩장 만들기
-                  </Button>
-                </Link>
+                {isSignedIn ? (
+                  <>
+                    <div className="flex items-center space-x-2 px-2 py-1">
+                      <User className="h-4 w-4 text-gray-600" />
+                      <span className="text-sm text-gray-700">{user?.firstName || user?.emailAddresses[0]?.emailAddress}</span>
+                    </div>
+                    <SignOutButton>
+                      <Button variant="outline" className="w-full" onClick={() => setIsMenuOpen(false)}>
+                        <LogOut className="h-4 w-4 mr-2" />
+                        로그아웃
+                      </Button>
+                    </SignOutButton>
+                    <Link href="/create" onClick={() => setIsMenuOpen(false)}>
+                      <Button className="w-full bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-600 hover:to-rose-500">
+                        청첩장 만들기
+                      </Button>
+                    </Link>
+                  </>
+                ) : (
+                  <>
+                    <SignInButton mode="modal">
+                      <Button variant="outline" className="w-full" onClick={() => setIsMenuOpen(false)}>
+                        로그인
+                      </Button>
+                    </SignInButton>
+                    <Link href="/create" onClick={() => setIsMenuOpen(false)}>
+                      <Button className="w-full bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-600 hover:to-rose-500">
+                        청첩장 만들기
+                      </Button>
+                    </Link>
+                  </>
+                )}
               </div>
             </div>
           </div>

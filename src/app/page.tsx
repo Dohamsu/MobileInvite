@@ -1,9 +1,23 @@
 'use client'
 
-import { Button } from "@/components/ui/button"
-import { Heart, Plus, Star, Clock, Palette, Share2, Gift, Camera } from "lucide-react"
-import Link from "next/link"
-import { motion } from "framer-motion"
+import {
+  Box,
+  Container,
+  Typography,
+  Button,
+  Grid,
+  Card,
+  CardContent,
+  Paper,
+  Rating,
+  Stack,
+} from '@mui/material'
+import { Heart, Plus, Star, Clock, Palette, Share2, Gift, Camera } from 'lucide-react'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
+
+const MotionBox = motion(Box)
+const MotionCard = motion(Card)
 
 export default function Home() {
   const features = [
@@ -30,173 +44,255 @@ export default function Home() {
   ]
 
   const templates = [
-    { id: 1, name: "로맨틱 플라워", color: "from-pink-100 to-rose-200" },
-    { id: 2, name: "모던 미니멀", color: "from-gray-100 to-slate-200" },
-    { id: 3, name: "빈티지 클래식", color: "from-amber-100 to-orange-200" },
-    { id: 4, name: "엘레간트 골드", color: "from-yellow-100 to-amber-200" }
+    { id: 1, name: "로맨틱 플라워", color: "linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%)" },
+    { id: 2, name: "모던 미니멀", color: "linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)" },
+    { id: 3, name: "빈티지 클래식", color: "linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%)" },
+    { id: 4, name: "엘레간트 골드", color: "linear-gradient(135deg, #fefce8 0%, #fef3c7 100%)" }
   ]
 
   return (
-    <div className="min-h-screen">
+    <Box sx={{ minHeight: '100vh' }}>
       {/* 히어로 섹션 */}
-      <section className="bg-gradient-to-br from-pink-50 via-white to-rose-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <motion.div
+      <Box sx={{ 
+        background: 'linear-gradient(135deg, #fdf2f8 0%, #ffffff 50%, #fff1f2 100%)',
+        py: 10
+      }}>
+        <Container maxWidth="lg">
+          <Box sx={{ textAlign: 'center' }}>
+            <MotionBox
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="mb-8"
+              sx={{ mb: 4 }}
             >
-              <Heart className="w-20 h-20 mx-auto mb-6 text-pink-500" />
-              <h1 className="text-4xl md:text-6xl font-bold mb-6">
-                <span className="bg-gradient-to-r from-pink-500 to-rose-400 bg-clip-text text-transparent">
-                  특별한 순간을
-                </span>
-                <br />
-                <span className="text-gray-900">더 특별하게</span>
-              </h1>
-              <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+              <Box sx={{ mb: 3 }}>
+                <Heart style={{ width: 80, height: 80, color: '#ec4899' }} />
+              </Box>
+              <Typography variant="h2" sx={{ 
+                fontWeight: 700, 
+                background: 'linear-gradient(45deg, #ec4899 30%, #f43f5e 90%)',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                mb: 2
+              }}>
+                특별한 순간을
+              </Typography>
+              <Typography variant="h2" sx={{ fontWeight: 700, color: 'text.primary', mb: 3 }}>
+                더 특별하게
+              </Typography>
+              <Typography variant="h6" sx={{ color: 'text.secondary', mb: 4, maxWidth: 600, mx: 'auto' }}>
                 아름다운 모바일 청첩장을 3분만에 만들어보세요. 
                 소중한 사람들에게 특별한 초대를 보내세요.
-              </p>
-            </motion.div>
+              </Typography>
+            </MotionBox>
 
-            <motion.div
+            <MotionBox
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+              sx={{ mb: 6 }}
             >
-              <Link href="/create">
-                <Button size="lg" className="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-600 hover:to-rose-500 text-white px-8 py-4 text-lg">
-                  <Plus className="w-5 h-5 mr-2" />
+              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} justifyContent="center">
+                <Button
+                  component={Link}
+                  href="/create"
+                  variant="contained"
+                  size="large"
+                  startIcon={<Plus />}
+                  sx={{
+                    background: 'linear-gradient(45deg, #ec4899 30%, #f43f5e 90%)',
+                    px: 4,
+                    py: 1.5,
+                    fontSize: '1.1rem',
+                    '&:hover': {
+                      background: 'linear-gradient(45deg, #db2777 30%, #e11d48 90%)',
+                    }
+                  }}
+                >
                   무료로 시작하기
                 </Button>
-              </Link>
-              <Link href="/templates">
-                <Button variant="outline" size="lg" className="px-8 py-4 text-lg">
-                  <Camera className="w-5 h-5 mr-2" />
+                <Button
+                  component={Link}
+                  href="/templates"
+                  variant="outlined"
+                  size="large"
+                  startIcon={<Camera />}
+                  sx={{ px: 4, py: 1.5, fontSize: '1.1rem' }}
+                >
                   템플릿 보기
                 </Button>
-              </Link>
-            </motion.div>
+              </Stack>
+            </MotionBox>
 
             {/* 평점 */}
-            <motion.div
+            <MotionBox
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex items-center justify-center gap-2 text-sm text-gray-600"
+              sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 1 }}
             >
-              <div className="flex items-center">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                ))}
-              </div>
-              <span className="font-semibold">4.9</span>
-              <span>• 10,000+ 만족한 고객</span>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+              <Rating value={5} readOnly size="small" />
+              <Typography variant="body2" sx={{ color: 'text.secondary', fontWeight: 600 }}>
+                4.9
+              </Typography>
+              <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                • 10,000+ 만족한 고객
+              </Typography>
+            </MotionBox>
+          </Box>
+        </Container>
+      </Box>
 
       {/* 특징 섹션 */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+      <Box sx={{ py: 10, bgcolor: 'background.paper' }}>
+        <Container maxWidth="lg">
+          <Box sx={{ textAlign: 'center', mb: 8 }}>
+            <Typography variant="h3" sx={{ fontWeight: 700, mb: 2 }}>
               왜 Mobile Invite인가요?
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            </Typography>
+            <Typography variant="h6" sx={{ color: 'text.secondary', maxWidth: 600, mx: 'auto' }}>
               복잡한 과정 없이 누구나 쉽게 아름다운 청첩장을 만들 수 있습니다
-            </p>
-          </div>
+            </Typography>
+          </Box>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', lg: 'repeat(4, 1fr)' }, gap: 4 }}>
             {features.map((feature, index) => (
-              <motion.div
+              <MotionCard
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center p-6 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-lg transition-all duration-300"
+                sx={{
+                  textAlign: 'center',
+                  p: 3,
+                  height: '100%',
+                  '&:hover': {
+                    transform: 'translateY(-4px)',
+                    boxShadow: 3,
+                  },
+                  transition: 'all 0.3s ease',
+                }}
               >
-                <feature.icon className="w-12 h-12 mx-auto mb-4 text-pink-500" />
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                  {feature.title}
-                </h3>
-                <p className="text-gray-600">{feature.description}</p>
-              </motion.div>
+                <CardContent>
+                  <Box sx={{ mb: 2 }}>
+                    <feature.icon style={{ width: 48, height: 48, margin: '0 auto', color: '#ec4899' }} />
+                  </Box>
+                  <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
+                    {feature.title}
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                    {feature.description}
+                  </Typography>
+                </CardContent>
+              </MotionCard>
             ))}
-          </div>
-        </div>
-      </section>
+          </Box>
+        </Container>
+      </Box>
 
       {/* 템플릿 미리보기 섹션 */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+      <Box sx={{ py: 10, bgcolor: 'grey.50' }}>
+        <Container maxWidth="lg">
+          <Box sx={{ textAlign: 'center', mb: 8 }}>
+            <Typography variant="h3" sx={{ fontWeight: 700, mb: 2 }}>
               아름다운 템플릿
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            </Typography>
+            <Typography variant="h6" sx={{ color: 'text.secondary', maxWidth: 600, mx: 'auto' }}>
               다양한 스타일의 템플릿 중에서 마음에 드는 디자인을 선택하세요
-            </p>
-          </div>
+            </Typography>
+          </Box>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+          <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', lg: 'repeat(4, 1fr)' }, gap: 3, mb: 6 }}>
             {templates.map((template, index) => (
-              <motion.div
+              <MotionCard
                 key={template.id}
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="group cursor-pointer"
+                sx={{
+                  cursor: 'pointer',
+                  '&:hover': {
+                    transform: 'scale(1.05)',
+                  },
+                  transition: 'transform 0.3s ease',
+                }}
               >
-                <div className={`h-64 rounded-2xl bg-gradient-to-br ${template.color} mb-4 group-hover:scale-105 transition-transform duration-300 flex items-center justify-center`}>
-                  <Heart className="w-16 h-16 text-gray-400" />
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 text-center">
-                  {template.name}
-                </h3>
-              </motion.div>
+                <Box
+                  sx={{
+                    height: 200,
+                    background: template.color,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    borderRadius: 1,
+                  }}
+                >
+                  <Heart style={{ width: 64, height: 64, color: '#9ca3af' }} />
+                </Box>
+                <CardContent sx={{ textAlign: 'center' }}>
+                  <Typography variant="h6" sx={{ fontWeight: 600 }}>
+                    {template.name}
+                  </Typography>
+                </CardContent>
+              </MotionCard>
             ))}
-          </div>
+          </Box>
 
-          <div className="text-center">
-            <Link href="/templates">
-              <Button variant="outline" size="lg" className="px-8">
-                모든 템플릿 보기
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+          <Box sx={{ textAlign: 'center' }}>
+            <Button
+              component={Link}
+              href="/templates"
+              variant="outlined"
+              size="large"
+              sx={{ px: 4 }}
+            >
+              모든 템플릿 보기
+            </Button>
+          </Box>
+        </Container>
+      </Box>
 
       {/* CTA 섹션 */}
-      <section className="py-20 bg-gradient-to-br from-pink-500 to-rose-400">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <motion.div
+      <Box sx={{ 
+        py: 10,
+        background: 'linear-gradient(45deg, #ec4899 30%, #f43f5e 90%)',
+      }}>
+        <Container maxWidth="md">
+          <MotionBox
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
+            sx={{ textAlign: 'center' }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            <Typography variant="h3" sx={{ fontWeight: 700, color: 'white', mb: 2 }}>
               지금 바로 시작해보세요
-            </h2>
-            <p className="text-xl text-pink-100 mb-8">
+            </Typography>
+            <Typography variant="h6" sx={{ color: 'rgba(255,255,255,0.9)', mb: 4 }}>
               무료로 청첩장을 만들고 소중한 사람들을 초대하세요
-            </p>
-            <Link href="/create">
-              <Button size="lg" variant="secondary" className="px-8 py-4 text-lg bg-white text-pink-500 hover:bg-gray-50">
-                <Plus className="w-5 h-5 mr-2" />
-                청첩장 만들기
-              </Button>
-            </Link>
-          </motion.div>
-        </div>
-      </section>
-    </div>
+            </Typography>
+            <Button
+              component={Link}
+              href="/create"
+              variant="contained"
+              size="large"
+              startIcon={<Plus />}
+              sx={{
+                bgcolor: 'white',
+                color: 'primary.main',
+                px: 4,
+                py: 1.5,
+                fontSize: '1.1rem',
+                '&:hover': {
+                  bgcolor: 'grey.50',
+                }
+              }}
+            >
+              청첩장 만들기
+            </Button>
+          </MotionBox>
+        </Container>
+      </Box>
+    </Box>
   )
 }

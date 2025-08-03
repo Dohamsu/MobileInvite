@@ -24,6 +24,7 @@ import {
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
+import { useUser } from '@clerk/nextjs'
 
 const MotionBox = motion(Box)
 const MotionCard = motion(Card)
@@ -72,6 +73,7 @@ const steps = ['템플릿 선택', '기본 정보', '상세 정보', '완성']
 
 export default function CreatePage() {
   const router = useRouter()
+  const { isSignedIn, isLoaded } = useUser()
   const [activeStep, setActiveStep] = useState(0)
   const [invitationData, setInvitationData] = useState<InvitationData>({
     brideName: '',
@@ -85,6 +87,41 @@ export default function CreatePage() {
     brideAccount: '',
     template: '',
   })
+
+  // 로딩 중이거나 로그인하지 않은 경우
+  if (!isLoaded) {
+    return (
+      <Box sx={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <Typography>로딩 중...</Typography>
+      </Box>
+    )
+  }
+
+  if (!isSignedIn) {
+    return (
+      <Box sx={{ minHeight: '100vh', py: 4 }}>
+        <Container maxWidth="md">
+          <Box sx={{ textAlign: 'center', py: 8 }}>
+            <Typography variant="h4" sx={{ mb: 3, fontWeight: 600 }}>
+              로그인이 필요합니다
+            </Typography>
+            <Typography variant="body1" color="text.secondary" sx={{ mb: 4 }}>
+              청첩장을 만들기 위해서는 로그인이 필요합니다.
+            </Typography>
+            <Button
+              component={Link}
+              href="/"
+              variant="contained"
+              size="large"
+              sx={{ px: 4 }}
+            >
+              홈으로 돌아가기
+            </Button>
+          </Box>
+        </Container>
+      </Box>
+    )
+  }
 
   const handleNext = () => {
     if (activeStep === steps.length - 1) {

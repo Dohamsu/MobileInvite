@@ -1,5 +1,110 @@
 {
-  "node": {},
+  "node": {
+    "7f77cff80c7203897cf44d260d6524536abbd259ff": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjwonkim%2FDocuments%2FMobileInvite%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f77cff80c7203897cf44d260d6524536abbd259ff%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227fcad7f702387b368173942fcf1c3d71e8a3c8f128%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227ff4deffc59da818b72b8eeb793f5d139d3b9d2128%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/templates/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjwonkim%2FDocuments%2FMobileInvite%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f77cff80c7203897cf44d260d6524536abbd259ff%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227fcad7f702387b368173942fcf1c3d71e8a3c8f128%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227ff4deffc59da818b72b8eeb793f5d139d3b9d2128%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/invite/[id]/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjwonkim%2FDocuments%2FMobileInvite%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f77cff80c7203897cf44d260d6524536abbd259ff%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227fcad7f702387b368173942fcf1c3d71e8a3c8f128%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227ff4deffc59da818b72b8eeb793f5d139d3b9d2128%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/create/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjwonkim%2FDocuments%2FMobileInvite%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f77cff80c7203897cf44d260d6524536abbd259ff%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227fcad7f702387b368173942fcf1c3d71e8a3c8f128%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227ff4deffc59da818b72b8eeb793f5d139d3b9d2128%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "rsc",
+        "app/templates/page": "rsc",
+        "app/invite/[id]/page": "rsc",
+        "app/create/page": "rsc"
+      }
+    },
+    "7fcad7f702387b368173942fcf1c3d71e8a3c8f128": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjwonkim%2FDocuments%2FMobileInvite%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f77cff80c7203897cf44d260d6524536abbd259ff%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227fcad7f702387b368173942fcf1c3d71e8a3c8f128%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227ff4deffc59da818b72b8eeb793f5d139d3b9d2128%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/templates/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjwonkim%2FDocuments%2FMobileInvite%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f77cff80c7203897cf44d260d6524536abbd259ff%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227fcad7f702387b368173942fcf1c3d71e8a3c8f128%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227ff4deffc59da818b72b8eeb793f5d139d3b9d2128%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/invite/[id]/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjwonkim%2FDocuments%2FMobileInvite%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f77cff80c7203897cf44d260d6524536abbd259ff%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227fcad7f702387b368173942fcf1c3d71e8a3c8f128%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227ff4deffc59da818b72b8eeb793f5d139d3b9d2128%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/create/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjwonkim%2FDocuments%2FMobileInvite%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f77cff80c7203897cf44d260d6524536abbd259ff%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227fcad7f702387b368173942fcf1c3d71e8a3c8f128%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227ff4deffc59da818b72b8eeb793f5d139d3b9d2128%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "rsc",
+        "app/templates/page": "rsc",
+        "app/invite/[id]/page": "rsc",
+        "app/create/page": "rsc"
+      }
+    },
+    "7ff4deffc59da818b72b8eeb793f5d139d3b9d2128": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjwonkim%2FDocuments%2FMobileInvite%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f77cff80c7203897cf44d260d6524536abbd259ff%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227fcad7f702387b368173942fcf1c3d71e8a3c8f128%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227ff4deffc59da818b72b8eeb793f5d139d3b9d2128%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/templates/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjwonkim%2FDocuments%2FMobileInvite%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f77cff80c7203897cf44d260d6524536abbd259ff%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227fcad7f702387b368173942fcf1c3d71e8a3c8f128%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227ff4deffc59da818b72b8eeb793f5d139d3b9d2128%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/invite/[id]/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjwonkim%2FDocuments%2FMobileInvite%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f77cff80c7203897cf44d260d6524536abbd259ff%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227fcad7f702387b368173942fcf1c3d71e8a3c8f128%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227ff4deffc59da818b72b8eeb793f5d139d3b9d2128%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        },
+        "app/create/page": {
+          "moduleId": "(rsc)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjwonkim%2FDocuments%2FMobileInvite%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fkeyless-actions.js%22%2C%5B%7B%22id%22%3A%227f77cff80c7203897cf44d260d6524536abbd259ff%22%2C%22exportedName%22%3A%22syncKeylessConfigAction%22%7D%2C%7B%22id%22%3A%227fcad7f702387b368173942fcf1c3d71e8a3c8f128%22%2C%22exportedName%22%3A%22deleteKeylessAction%22%7D%2C%7B%22id%22%3A%227ff4deffc59da818b72b8eeb793f5d139d3b9d2128%22%2C%22exportedName%22%3A%22createOrReadKeylessAction%22%7D%5D%5D%5D&__client_imported__=!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "rsc",
+        "app/templates/page": "rsc",
+        "app/invite/[id]/page": "rsc",
+        "app/create/page": "rsc"
+      }
+    },
+    "7f001db58a41ccbc04f5f7695801c391390979ea3e": {
+      "workers": {
+        "app/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjwonkim%2FDocuments%2FMobileInvite%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fserver-actions.js%22%2C%5B%7B%22id%22%3A%227f001db58a41ccbc04f5f7695801c391390979ea3e%22%2C%22exportedName%22%3A%22invalidateCacheAction%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        },
+        "app/templates/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjwonkim%2FDocuments%2FMobileInvite%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fserver-actions.js%22%2C%5B%7B%22id%22%3A%227f001db58a41ccbc04f5f7695801c391390979ea3e%22%2C%22exportedName%22%3A%22invalidateCacheAction%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        },
+        "app/invite/[id]/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjwonkim%2FDocuments%2FMobileInvite%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fserver-actions.js%22%2C%5B%7B%22id%22%3A%227f001db58a41ccbc04f5f7695801c391390979ea3e%22%2C%22exportedName%22%3A%22invalidateCacheAction%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        },
+        "app/create/page": {
+          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjwonkim%2FDocuments%2FMobileInvite%2Fnode_modules%2F%40clerk%2Fnextjs%2Fdist%2Fesm%2Fapp-router%2Fserver-actions.js%22%2C%5B%7B%22id%22%3A%227f001db58a41ccbc04f5f7695801c391390979ea3e%22%2C%22exportedName%22%3A%22invalidateCacheAction%22%7D%5D%5D%5D&__client_imported__=true!",
+          "async": false
+        }
+      },
+      "layer": {
+        "app/page": "action-browser",
+        "app/templates/page": "action-browser",
+        "app/invite/[id]/page": "action-browser",
+        "app/create/page": "action-browser"
+      }
+    }
+  },
   "edge": {},
   "encryptionKey": "n+SOUmxsmrFClwdfrC1A7mAOJES0dAy5N3xONKPpB0s="
 }
