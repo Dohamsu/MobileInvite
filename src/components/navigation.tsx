@@ -5,6 +5,19 @@ import Link from 'next/link'
 import { Button } from '@/components/ui/button'
 import { Heart, Menu, X, User, LogOut } from 'lucide-react'
 import { useUser, SignInButton, SignOutButton } from '@clerk/nextjs'
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Box,
+  IconButton,
+  Drawer,
+  List,
+  ListItem,
+  ListItemText,
+  Divider,
+  Avatar,
+} from '@mui/material'
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -12,159 +25,198 @@ export function Navigation() {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
+  const menuItems = [
+    { href: '/templates', label: '템플릿' },
+    { href: '/gallery', label: '갤러리' },
+    { href: '/pricing', label: '요금안내' },
+    { href: '/support', label: '고객지원' },
+  ]
+
   return (
-    <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* 로고 */}
-          <Link href="/" className="flex items-center space-x-2">
-            <Heart className="h-8 w-8 text-pink-500" />
-            <span className="font-bold text-xl bg-gradient-to-r from-pink-500 to-rose-400 bg-clip-text text-transparent">
+    <AppBar 
+      position="sticky" 
+      sx={{ 
+        backgroundColor: 'rgba(255, 255, 255, 0.95)',
+        backdropFilter: 'blur(10px)',
+        borderBottom: '1px solid rgba(0, 0, 0, 0.1)',
+        boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)',
+      }}
+    >
+      <Toolbar sx={{ maxWidth: '1200px', mx: 'auto', width: '100%' }}>
+        {/* 로고 */}
+        <Link href="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+            <Heart style={{ width: 32, height: 32, color: '#ec4899' }} />
+            <Typography 
+              variant="h6" 
+              sx={{ 
+                fontWeight: 700,
+                background: 'linear-gradient(45deg, #ec4899 30%, #f43f5e 90%)',
+                backgroundClip: 'text',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+              }}
+            >
               Mobile Invite
-            </span>
-          </Link>
+            </Typography>
+          </Box>
+        </Link>
 
-          {/* 데스크톱 메뉴 */}
-          <div className="hidden md:flex items-center space-x-8">
-            <Link 
-              href="/templates" 
-              className="text-gray-700 hover:text-pink-500 transition-colors"
-            >
-              템플릿
+        {/* 데스크톱 메뉴 */}
+        <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center' }}>
+          {menuItems.map((item) => (
+            <Link key={item.href} href={item.href} style={{ textDecoration: 'none' }}>
+              <Button 
+                variant="ghost"
+                className="mx-1 text-gray-700 hover:text-pink-500 hover:bg-transparent"
+              >
+                {item.label}
+              </Button>
             </Link>
-            <Link 
-              href="/gallery" 
-              className="text-gray-700 hover:text-pink-500 transition-colors"
-            >
-              갤러리
-            </Link>
-            <Link 
-              href="/pricing" 
-              className="text-gray-700 hover:text-pink-500 transition-colors"
-            >
-              요금안내
-            </Link>
-            <Link 
-              href="/support" 
-              className="text-gray-700 hover:text-pink-500 transition-colors"
-            >
-              고객지원
-            </Link>
-          </div>
+          ))}
+        </Box>
 
-          {/* 로그인/회원가입 버튼 (데스크톱) */}
-          <div className="hidden md:flex items-center space-x-4">
-            {isSignedIn ? (
-              <div className="flex items-center space-x-4">
-                <div className="flex items-center space-x-2">
-                  <User className="h-4 w-4 text-gray-600" />
-                  <span className="text-sm text-gray-700">{user?.firstName || user?.emailAddresses[0]?.emailAddress}</span>
-                </div>
-                <SignOutButton>
-                  <Button variant="ghost" size="sm">
-                    <LogOut className="h-4 w-4 mr-2" />
-                    로그아웃
-                  </Button>
-                </SignOutButton>
-                <Link href="/create">
-                  <Button className="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-600 hover:to-rose-500">
-                    청첩장 만들기
-                  </Button>
-                </Link>
-              </div>
-            ) : (
-              <div className="flex items-center space-x-4">
-                <SignInButton mode="modal">
-                  <Button variant="ghost">로그인</Button>
-                </SignInButton>
-                <Link href="/create">
-                  <Button className="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-600 hover:to-rose-500">
-                    청첩장 만들기
-                  </Button>
-                </Link>
-              </div>
-            )}
-          </div>
+        {/* 데스크톱 로그인/회원가입 버튼 */}
+        <Box sx={{ display: { xs: 'none', md: 'flex' }, alignItems: 'center', gap: 2 }}>
+          {isSignedIn ? (
+            <>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                <Avatar sx={{ width: 32, height: 32, bgcolor: 'primary.main' }}>
+                  <User style={{ width: 16, height: 16 }} />
+                </Avatar>
+                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                  {user?.firstName || user?.emailAddresses[0]?.emailAddress?.split('@')[0]}
+                </Typography>
+              </Box>
+              <SignOutButton>
+                <Button 
+                  variant="outline" 
+                  size="sm"
+                  className="border-gray-300 text-gray-600 hover:border-pink-500 hover:text-pink-500"
+                >
+                  <LogOut className="w-4 h-4 mr-2" />
+                  로그아웃
+                </Button>
+              </SignOutButton>
+              <Link href="/create">
+                <Button className="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-600 hover:to-rose-500 text-white">
+                  청첩장 만들기
+                </Button>
+              </Link>
+            </>
+          ) : (
+            <>
+              <SignInButton mode="modal">
+                <Button 
+                  variant="outline"
+                  className="border-gray-300 text-gray-600 hover:border-pink-500 hover:text-pink-500"
+                >
+                  로그인
+                </Button>
+              </SignInButton>
+              <Link href="/create">
+                <Button className="bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-600 hover:to-rose-500 text-white">
+                  청첩장 만들기
+                </Button>
+              </Link>
+            </>
+          )}
+        </Box>
 
-          {/* 모바일 메뉴 버튼 */}
-          <button
-            onClick={toggleMenu}
-            className="md:hidden p-2 rounded-md text-gray-700 hover:text-pink-500 transition-colors"
-          >
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-          </button>
-        </div>
+        {/* 모바일 메뉴 버튼 */}
+        <IconButton
+          onClick={toggleMenu}
+          sx={{ display: { md: 'none' }, color: 'text.primary' }}
+        >
+          {isMenuOpen ? <X /> : <Menu />}
+        </IconButton>
+      </Toolbar>
 
-        {/* 모바일 메뉴 */}
-        {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-100">
-            <div className="flex flex-col space-y-4">
-              <Link 
-                href="/templates" 
-                className="text-gray-700 hover:text-pink-500 transition-colors px-2 py-1"
-                onClick={() => setIsMenuOpen(false)}
+      {/* 모바일 메뉴 */}
+      <Drawer
+        anchor="right"
+        open={isMenuOpen}
+        onClose={toggleMenu}
+        sx={{
+          '& .MuiDrawer-paper': {
+            width: 280,
+            p: 2,
+          },
+        }}
+      >
+        <Box sx={{ p: 2 }}>
+          <Typography variant="h6" sx={{ mb: 2, fontWeight: 600 }}>
+            메뉴
+          </Typography>
+          
+          <List>
+            {menuItems.map((item) => (
+              <ListItem 
+                key={item.href}
+                component={Link}
+                href={item.href}
+                onClick={toggleMenu}
+                sx={{
+                  borderRadius: 1,
+                  mb: 0.5,
+                  '&:hover': {
+                    backgroundColor: 'action.hover',
+                  },
+                }}
               >
-                템플릿
+                <ListItemText primary={item.label} />
+              </ListItem>
+            ))}
+          </List>
+
+          <Divider sx={{ my: 2 }} />
+
+          {isSignedIn ? (
+            <Box sx={{ spaceY: 2 }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
+                <Avatar sx={{ width: 32, height: 32, bgcolor: 'primary.main' }}>
+                  <User style={{ width: 16, height: 16 }} />
+                </Avatar>
+                <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                  {user?.firstName || user?.emailAddresses[0]?.emailAddress?.split('@')[0]}
+                </Typography>
+              </Box>
+              <SignOutButton>
+                <Button 
+                  variant="outline" 
+                  className="w-full mb-2"
+                  onClick={toggleMenu}
+                >
+                  <LogOut className="w-4 h-4 mr-2" />
+                  로그아웃
+                </Button>
+              </SignOutButton>
+              <Link href="/create" onClick={toggleMenu}>
+                <Button className="w-full bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-600 hover:to-rose-500 text-white">
+                  청첩장 만들기
+                </Button>
               </Link>
-              <Link 
-                href="/gallery" 
-                className="text-gray-700 hover:text-pink-500 transition-colors px-2 py-1"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                갤러리
+            </Box>
+          ) : (
+            <Box sx={{ spaceY: 2 }}>
+              <SignInButton mode="modal">
+                <Button 
+                  variant="outline" 
+                  className="w-full mb-2"
+                  onClick={toggleMenu}
+                >
+                  로그인
+                </Button>
+              </SignInButton>
+              <Link href="/create" onClick={toggleMenu}>
+                <Button className="w-full bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-600 hover:to-rose-500 text-white">
+                  청첩장 만들기
+                </Button>
               </Link>
-              <Link 
-                href="/pricing" 
-                className="text-gray-700 hover:text-pink-500 transition-colors px-2 py-1"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                요금안내
-              </Link>
-              <Link 
-                href="/support" 
-                className="text-gray-700 hover:text-pink-500 transition-colors px-2 py-1"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                고객지원
-              </Link>
-              <div className="flex flex-col space-y-2 pt-4 border-t border-gray-100">
-                {isSignedIn ? (
-                  <>
-                    <div className="flex items-center space-x-2 px-2 py-1">
-                      <User className="h-4 w-4 text-gray-600" />
-                      <span className="text-sm text-gray-700">{user?.firstName || user?.emailAddresses[0]?.emailAddress}</span>
-                    </div>
-                    <SignOutButton>
-                      <Button variant="outline" className="w-full" onClick={() => setIsMenuOpen(false)}>
-                        <LogOut className="h-4 w-4 mr-2" />
-                        로그아웃
-                      </Button>
-                    </SignOutButton>
-                    <Link href="/create" onClick={() => setIsMenuOpen(false)}>
-                      <Button className="w-full bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-600 hover:to-rose-500">
-                        청첩장 만들기
-                      </Button>
-                    </Link>
-                  </>
-                ) : (
-                  <>
-                    <SignInButton mode="modal">
-                      <Button variant="outline" className="w-full" onClick={() => setIsMenuOpen(false)}>
-                        로그인
-                      </Button>
-                    </SignInButton>
-                    <Link href="/create" onClick={() => setIsMenuOpen(false)}>
-                      <Button className="w-full bg-gradient-to-r from-pink-500 to-rose-400 hover:from-pink-600 hover:to-rose-500">
-                        청첩장 만들기
-                      </Button>
-                    </Link>
-                  </>
-                )}
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-    </nav>
+            </Box>
+          )}
+        </Box>
+      </Drawer>
+    </AppBar>
   )
 }
